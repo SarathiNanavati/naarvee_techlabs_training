@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fan {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #f00;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.ballTopOn {
+    margin-left: 2.2rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f00;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.ballRightOn {
+    margin-top: 2.5rem;
+    margin-left: 4.9rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f00;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.ballBottomOn {
+    margin-top: 4.79rem;
+    margin-left: 2.3rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f00;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.ballLeftOn {
+    margin-top: 2.6rem;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f00;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.ballTopOff,
+.ballRightOff,
+.ballBottomOff,
+.ballLeftOff {
+    display: none;
+}

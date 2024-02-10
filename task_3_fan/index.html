@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="fan">
+        <div class="" id="top"></div>
+        <div class="" id="right"></div>
+        <div class="" id="bottom"></div>
+        <div class="" id="left"></div>
+    </div>
+    <button class="on">ON</button>
+    <button class="off">OFF</button>
+    <button class="one"> 1</button>
+    <button class="two">2</button>
+    <button class="three">3</button>
+    <script>
+        let ref; //reference of the set interval
+
+        const on = document.querySelector(".on");
+        const off = document.querySelector('.off');
+        const one = document.querySelector(".one");
+        const two = document.querySelector(".two");
+        const three = document.querySelector(".three");
+
+        let topp = document.getElementById("top");
+        let rightt = document.getElementById("right");
+        let bottomm = document.getElementById("bottom");
+        let leftt = document.getElementById("left");
+
+
+        on.addEventListener('click', () => {
+            let iteration = 0;
+            ref = setInterval(() => {
+                if (iteration % 4 == 0) {
+                    topp.classList.add("ballTopOn");
+                    topp.classList.remove("ballTopOff");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 1) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOn");
+                    rightt.classList.remove("ballRightOff");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 2) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOn");
+                    bottomm.classList.remove("ballBottomOff");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOn");
+                    leftt.classList.remove("ballLeftOff");
+                }
+                iteration=iteration+1;
+            }, 1000);
+        });
+
+        off.addEventListener('click', () => {
+            clearInterval(ref);
+        });
+
+        one.addEventListener('click', () => {
+            let iteration = 0;
+            ref = setInterval(() => {
+                if (iteration % 4 == 0) {
+                    topp.classList.add("ballTopOn");
+                    topp.classList.remove("ballTopOff");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 1) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOn");
+                    rightt.classList.remove("ballRightOff");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 2) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOn");
+                    bottomm.classList.remove("ballBottomOff");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOn");
+                    leftt.classList.remove("ballLeftOff");
+                }
+                iteration=iteration+1;
+            }, 3000);
+        });
+
+        two.addEventListener('click', () => {
+            let iteration = 0;
+            ref = setInterval(() => {
+                if (iteration % 4 == 0) {
+                    topp.classList.add("ballTopOn");
+                    topp.classList.remove("ballTopOff");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 1) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOn");
+                    rightt.classList.remove("ballRightOff");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 2) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOn");
+                    bottomm.classList.remove("ballBottomOff");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOn");
+                    leftt.classList.remove("ballLeftOff");
+                }
+                iteration=iteration+1;
+            }, 2000);
+        });
+    
+        three.addEventListener('click', () => {
+            let iteration = 0;
+            ref = setInterval(() => {
+                if (iteration % 4 == 0) {
+                    topp.classList.add("ballTopOn");
+                    topp.classList.remove("ballTopOff");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 1) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOn");
+                    rightt.classList.remove("ballRightOff");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else if (iteration % 4 == 2) {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOn");
+                    bottomm.classList.remove("ballBottomOff");
+
+                    leftt.classList.add("ballLeftOff");
+                    leftt.classList.remove("ballLeftOn");
+                }
+                else {
+                    topp.classList.add("ballTopOff");
+                    topp.classList.remove("ballTopOn");
+
+                    rightt.classList.add("ballRightOff");
+                    rightt.classList.remove("ballRightOn");
+
+                    bottomm.classList.add("ballBottomOff");
+                    bottomm.classList.remove("ballBottomOn");
+
+                    leftt.classList.add("ballLeftOn");
+                    leftt.classList.remove("ballLeftOff");
+                }
+                iteration=iteration+1;
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

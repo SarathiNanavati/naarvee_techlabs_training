@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h1{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-left: 34rem;
+}
+
+table{
+    width: 65%;
+    margin-top: 3rem;
+    border-collapse: collapse;
+    margin-left: 13rem;
+}
+
+button{
+    color: white;
+    background-color: rgb(92, 144, 187);
+    padding: 10px;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.top{
+    display: flex;
+    justify-content: space-around;
+}
+
+button:hover{
+    background-color: white;
+    color: rgb(92, 144, 187);
+    
+}
+
+#name{
+    padding: 10px;
+    border-radius: 2rem;
+}
+thead{
+    background-color: rgb(185, 219, 235);
+    padding: 10rem;
+}
+td{
+    padding: 0.6rem;
+    align-items: center;
+}
+th{
+    padding: 1rem;
+}
+input{
+    align-items: center;
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Student Dashboard</h1>
+    <div class="top">
+        <form action="" onsubmit="showByName(event)">
+            <input type="text" placeholder="Enter your name" id="name">
+            <button>Search</button>
+        </form>
+        <button onclick="showAll(event)">Show All Students data</button>
+        <button onclick="showPassingStudents(event)">Show List of Passing students</button>
+        <button onclick="applyFilter(event)">Apply Filter</button>
+    </div>
+    <div id="student">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>
+                        Maths
+                        <input type="number" min="0" max="100" placeholder="low" id="mathsLow" onchange="dynamic(event)">
+                        <input type="number" min="0" max="100" placeholder="high" id="mathsHigh" onchange="dynamic(event)">
+                    </th>
+                    <th>
+                        Science
+                        <input type="number" min="0" max="100" placeholder="low" id="scienceLow" onchange="dynamic(event)">
+                        <input type="number" min="0" max="100" placeholder="high" id="scienceHigh" onchange="dynamic(event)">
+                    </th>
+                    <th>
+                        English
+                        <input type="number" min="0" max="100" placeholder="low" id="englishLow" onchange="dynamic(event)">
+                        <input type="number" min="0" max="100" placeholder="high" id="englishHigh" onchange="dynamic(event)">
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="studentData"></tbody> <!--populating this section with data -->
+        </table>
+    </div>
+    <script>
+        const students = [
+            {
+                "student_id": 1,
+                "name": "John",
+                "marks": {
+                    "maths": 9,
+                    "science": 8,
+                    "english": 2
+                }
+            },
+            {
+                "student_id": 2,
+                "name": "John",
+                "marks": {
+                    "maths": 90,
+                    "science": 88,
+                    "english": 85
+                }
+            },
+            {
+                "student_id": 3,
+                "name": "Alice",
+                "marks": {
+                    "maths": 78,
+                    "science": 82,
+                    "english": 79
+                }
+            },
+            {
+                "student_id": 4,
+                "name": "Bob",
+                "marks": {
+                    "maths": 9,
+                    "science": 1,
+                    "english": 8
+                }
+            },
+            {
+                "student_id": 5,
+                "name": "Chris",
+                "marks": {
+                    "maths": 64,
+                    "science": 84,
+                    "english": 91
+                }
+            },
+            {
+                "student_id": 6,
+                "name": "James",
+                "marks": {
+                    "maths": 12,
+                    "science": 53,
+                    "english": 64
+                }
+            },
+            {
+                "student_id": 7,
+                "name": "Alice",
+                "marks": {
+                    "maths": 89,
+                    "science": 80,
+                    "english": 78
+                }
+            },
+            {
+                "student_id": 8,
+                "name": "Iron",
+                "marks": {
+                    "maths": 2,
+                    "science": 9,
+                    "english": 7
+                }
+            },
+            {
+                "student_id": 9,
+                "name": "Captain",
+                "marks": {
+                    "maths": 99,
+                    "science": 99,
+                    "english": 99
+                }
+            },
+            {
+                "student_id": 10,
+                "name": "James",
+                "marks": {
+                    "maths": 32,
+                    "science": 28,
+                    "english": 78
+                }
+            },
+            {
+                "student_id": 11,
+                "name": "Cook",
+                "marks": {
+                    "maths": 38,
+                    "science": 98,
+                    "english": 18
+                }
+            }
+        ];
+
+        // Main Code Logic
+        let studentDiv = document.querySelector("#studentData");
+        const showAll = (ev) => {
+            studentDiv.innerHTML = ``;
+            ev.preventDefault();
+            for (const student of students) {
+                let tr = `
+                    <tr>
+                        <td>${student.student_id}</td>
+                        <td>${student.name}</td>
+                        <td>${student.marks.maths}</td>
+                        <td>${student.marks.science}</td>
+                        <td>${student.marks.english}</td>
+                    </tr>
+                `;
+                let data = document.createElement('tr');
+                data.innerHTML = tr;
+                studentDiv.appendChild(data);
+            }
+        }
+
+        const showByName = (ev) => {
+            studentDiv.innerHTML = ``;
+            ev.preventDefault();
+            const name = document.querySelector("#name").value;
+            const ans = students.filter((student) => {
+                return (student.name === name);
+            }).map((ele) => {
+                let tr = `
+                    <tr>
+                        <td>${ele.student_id}</td>
+                        <td>${ele.name}</td>
+                        <td>${ele.marks.maths}</td>
+                        <td>${ele.marks.science}</td>
+                        <td>${ele.marks.english}</td>
+                    </tr>
+                `;
+                let data = document.createElement('tr');
+                data.innerHTML = tr;
+                studentDiv.appendChild(data);
+            })
+            document.querySelector('#name').value = ""; //clearing at searchbox in end
+        }
+
+        const showPassingStudents = (ev) => {
+            studentDiv.innerHTML = ``;
+            ev.preventDefault();
+            const ans = students.reduce((acc, val) => {
+                let total = val.marks.maths + val.marks.english + val.marks.science;
+                if (total >= 33) acc.push(val);
+                return acc;
+            }, []);
+            console.log(ans);
+            ans.map((ele) => {
+                let tr = `
+                    <tr>
+                        <td>${ele.student_id}</td>
+                        <td>${ele.name}</td>
+                        <td>${ele.marks.maths}</td>
+                        <td>${ele.marks.science}</td>
+                        <td>${ele.marks.english}</td>
+                    </tr>
+                `;
+                let data = document.createElement('tr');
+                data.innerHTML = tr;
+                studentDiv.appendChild(data);
+            });
+        }
+
+
+        const isValid = (low, high, curr) => {
+            console.log(low, high, curr);
+            if (!low) low = 0;
+            
+
+            if (!high) high = 100;
+            return ((curr >= low) && (curr <= high));
+        }
+        const applyFilter = (ev) => {
+            //reset
+            studentDiv.innerHTML = ``;
+            document.querySelector("#mathsLow").innerHTML = ``;
+            document.querySelector("#mathsHigh").innerHTML = ``;
+            document.querySelector("#englishLow").innerHTML = ``;
+            document.querySelector("#englishHigh").innerHTML = ``;
+            document.querySelector("#scienceLow").innerHTML = ``;
+            document.querySelector("#scienceHigh").innerHTML = ``;
+            ev.preventDefault();
+            const mathsLow = document.querySelector("#mathsLow").value;
+            const mathsHigh = document.querySelector("#mathsHigh").value;
+            const englishLow = document.querySelector("#englishLow").value;
+            const englishHigh = document.querySelector("#englishHigh").value;
+            const scienceLow = document.querySelector("#scienceLow").value;
+            const scienceHigh = document.querySelector("#scienceHigh").value;
+
+            students
+            .filter((val) => {
+                return (isValid(mathsLow, mathsHigh, val.marks.maths) && isValid(englishLow, englishHigh, val.marks.english) && isValid(scienceLow, scienceHigh, val.marks.science));
+            })
+            .map((ele) => {
+                console.log(ele);
+                let tr = `
+                    <tr>
+                        <td>${ele.student_id}</td>
+                        <td>${ele.name}</td>
+                        <td>${ele.marks.maths}</td>
+                        <td>${ele.marks.science}</td>
+                        <td>${ele.marks.english}</td>
+                    </tr>
+                `;
+                let data = document.createElement('tr');
+                data.innerHTML = tr;
+                studentDiv.appendChild(data);
+            });
+        }
+
+        const dynamic = (ev)=>{
+            ev.preventDefault();
+            applyFilter(ev);
+        }
+    </script>
+
+</body>
+
+</html>
